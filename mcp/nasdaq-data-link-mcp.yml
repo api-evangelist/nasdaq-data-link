@@ -1,0 +1,30 @@
+generated: '2026-07-22'
+method: searched
+source: https://github.com/stefanoamorelli/nasdaq-data-link-mcp
+status: published
+official: false
+note: >-
+  Community-developed MCP server (not affiliated with or endorsed by Nasdaq),
+  built on the official Nasdaq/data-link-python SDK. No first-party Nasdaq
+  Data Link MCP server was found. Runs locally (stdio) with the
+  NASDAQ_DATA_LINK_API_KEY environment variable.
+server:
+  name: nasdaq-data-link-mcp
+  transport: stdio
+  package: nasdaq-data-link-mcp-os
+  registry: https://pypi.org/project/nasdaq-data-link-mcp-os/
+  repository: https://github.com/stefanoamorelli/nasdaq-data-link-mcp
+  license: MIT
+  environment:
+    - NASDAQ_DATA_LINK_API_KEY
+tools:
+  - name: search_datasets
+    description: Search for datasets by keyword
+  - name: get_dataset
+    description: Get data from a specific dataset (vendor/dataset code) with optional start/end date filters
+  - name: get_dataset_metadata
+    description: Get metadata about a dataset without downloading data
+  - name: list_databases
+    description: List available databases on Nasdaq Data Link
+  - name: export_dataset
+    description: Export a dataset in CSV, JSON, or XML format with optional date range

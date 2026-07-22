@@ -1,0 +1,40 @@
+generated: '2026-07-22'
+method: searched
+source: https://signin.nasdaq.com/oauth2/austt9dkdogT6EFRB417/.well-known/oauth-authorization-server
+docs: https://docs.data.nasdaq.com/docs/streaming-api
+note: >-
+  Nasdaq Data Link publishes no user-facing scopes reference; scopes below are
+  the scopes_supported advertised by the live RFC 8414 authorization-server
+  metadata (Okta org signin.nasdaq.com) that data.nasdaq.com's RFC 9728
+  protected-resource metadata points at. The core Tables REST API uses api_key
+  query-parameter auth (no scopes); OAuth applies to the Nasdaq Cloud Data
+  Service streaming/real-time surface, whose credentials are provisioned by
+  Nasdaq sales.
+schemes:
+  - name: nasdaq-okta
+    issuer: https://signin.nasdaq.com/oauth2/austt9dkdogT6EFRB417
+    flows:
+      - flow: clientCredentials
+        tokenUrl: https://signin.nasdaq.com/oauth2/austt9dkdogT6EFRB417/v1/token
+      - flow: authorizationCode
+        authorizationUrl: https://signin.nasdaq.com/oauth2/austt9dkdogT6EFRB417/v1/authorize
+        tokenUrl: https://signin.nasdaq.com/oauth2/austt9dkdogT6EFRB417/v1/token
+scopes:
+  - scope: datalink
+    description: Nasdaq Data Link resource access (custom scope advertised by the authorization server)
+  - scope: interclient_access
+    description: Inter-client access (custom scope advertised by the authorization server)
+  - scope: openid
+    description: OpenID Connect authentication
+  - scope: profile
+    description: OIDC profile claims
+  - scope: email
+    description: OIDC email claims
+  - scope: address
+    description: OIDC address claims
+  - scope: phone
+    description: OIDC phone claims
+  - scope: offline_access
+    description: Refresh token issuance
+  - scope: device_sso
+    description: Device single sign-on

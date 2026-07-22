@@ -1,0 +1,123 @@
+generated: '2026-07-22'
+method: searched
+source: https://docs.data.nasdaq.com/docs/error-codes
+format: custom-codes
+description: >-
+  The Nasdaq Data Link REST API for tables returns standard HTTP status codes
+  plus custom Nasdaq Data Link error codes (QE* prefix) with human-readable
+  messages. All requests must be made over HTTPS; requests over HTTP fail.
+  Code families: QEL (limits), QEA (authentication), QEP (permissions),
+  QES (syntax/parameters), QEC (codes/routes), QEM/QEX (server errors).
+status_page: https://status.data.nasdaq.com
+errors:
+  - code: QELx01
+    http_status: 429
+    description: You have exceeded your daily call limit as an anonymous user.
+  - code: QELx02
+    http_status: 429
+    description: You have exceeded your daily call limit as a registered user.
+  - code: QELx03
+    http_status: 429
+    description: You have exceeded your daily call limit as a subscriber.
+  - code: QELx04
+    http_status: 429
+    description: You have exceeded your 10-minute call limit as a registered user.
+  - code: QELx05
+    http_status: 429
+    description: You have exceeded your 10-minute call limit as a subscriber.
+  - code: QELx06
+    http_status: 422
+    description: You have requested too many rows of data.
+  - code: QELx07
+    http_status: 414
+    description: Your request query parameters are too long.
+  - code: QELx08
+    http_status: 413
+    description: The amount of data you are trying to return is too large. Narrow the data returned with filters.
+  - code: QEAx01
+    http_status: 400
+    description: We could not recognize your API key. Check your API key (found under account settings) and try again.
+  - code: QEAx02
+    http_status: 422
+    description: Your login credentials are invalid.
+  - code: QEAx03
+    http_status: 403
+    description: You must have an API key to access this resource.
+  - code: QEAx05
+    http_status: 401
+    description: Unauthorized
+  - code: QEAx06
+    http_status: 429
+    description: You have exceeded your daily call limit as a subscriber.
+  - code: QEAx07
+    http_status: 202
+    description: Please try again in 30 seconds.
+  - code: QEPx01
+    http_status: 401
+    description: Protected resource requested in anonymous mode; register for a free account and include your API key.
+  - code: QEPx02
+    http_status: 403
+    description: You do not have permission to use this endpoint.
+  - code: QEPx04
+    http_status: 403
+    description: No permission to view this dataset, or free-trial quota exceeded; subscribe for more views/downloads.
+  - code: QEPx05
+    http_status: 403
+    description: Premium dataset requested in anonymous mode; log in or register and include your API key.
+  - code: QEPx06
+    http_status: 403
+    description: You do not have access to view part of the data requested (e.g., column).
+  - code: QESx02
+    http_status: 422
+    description: Missing required parameter or empty value; check your parameters and try again.
+  - code: QESx03
+    http_status: 422
+    description: Incorrect parameters for creating/updating this resource; check API call syntax.
+  - code: QESx04
+    http_status: 422
+    description: Incorrect query parameters; check API call syntax.
+  - code: QESx05
+    http_status: 406
+    description: Unknown format requested; check the format and try again.
+  - code: QESx06
+    http_status: 400
+    description: Invalid cursor or page ID used with your query.
+  - code: QESx07
+    http_status: 422
+    description: Unsupported operator for your query parameters.
+  - code: QESx08
+    http_status: 422
+    description: Attempted to filter a column that is not available for filtering.
+  - code: QESx09
+    http_status: 400
+    description: The syntax of your query parameters is incorrect.
+  - code: QECx01
+    http_status: 400
+    description: Unknown API route; check your URL and try again.
+  - code: QECx02
+    http_status: 404
+    description: Incorrect Table code submitted; check your Table codes.
+  - code: QECx03
+    http_status: 404
+    description: We could not find the resource you requested; check your URL.
+  - code: QECx04
+    http_status: 404
+    description: The referral code is invalid.
+  - code: QECx05
+    http_status: 422
+    description: The URL you requested is incorrect; an alternative URL may be presented.
+  - code: QECx06
+    http_status: 404
+    description: This dataset has been deprecated and cannot be called; contact clientsuccess@nasdaq.com.
+  - code: QEMx01
+    http_status: 500
+    description: Something went wrong; if problems continue contact clientsuccess@nasdaq.com.
+  - code: QEXx01
+    http_status: 503
+    description: The request took too long; try again later.
+  - code: QEXx02
+    http_status: 502
+    description: We are experiencing connectivity issues; try again later.
+  - code: QEXx03
+    http_status: 500
+    description: Something went wrong; if problems continue contact clientsuccess@nasdaq.com.

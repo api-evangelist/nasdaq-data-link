@@ -1,32 +1,144 @@
 aid: nasdaq-data-link
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/nasdaq-data-link.png
 name: Nasdaq Data Link
-description: "Stock market data"
-url: https://docs.data.nasdaq.com/
+description: >-
+  Nasdaq Data Link (formerly Quandl) is Nasdaq's financial, economic, and
+  alternative data platform, offering hundreds of free and premium datasets
+  from publishers like Zacks, Sharadar, QuoteMedia, and the World Bank. Data
+  is delivered through a REST API for tables data, a REST API for real-time
+  or delayed exchange data, and a streaming API (Nasdaq Cloud Data Service),
+  with official Python, R, Excel, and CLI tooling.
+url: https://data.nasdaq.com/
 specificationVersion: '0.20'
 created: '2026-05-28'
-modified: '2026-05-28'
+modified: '2026-07-22'
 x-source: public-apis/public-apis
 x-category: "Open Data"
 x-tier: 3
 x-tier-reason: bulk-registered-from-public-apis
 tags:
+  - Financial Data
+  - Stock Market
+  - Market Data
+  - Economic Data
+  - Alternative Data
+  - Time Series
   - Open Data
   - Public APIs
 apis:
-  - name: Nasdaq Data Link
-    description: "Stock market data"
-    humanURL: https://docs.data.nasdaq.com/
-    baseURL: https://docs.data.nasdaq.com/
+  - name: Nasdaq Data Link Tables API
+    description: >-
+      REST API for tables data (datatables) — row and column filtered access
+      to hundreds of financial, economic, and alternative datasets, with JSON,
+      XML, and CSV formats, cursor-based pagination, and an asynchronous bulk
+      export (qopts.export=true).
+    humanURL: https://docs.data.nasdaq.com/docs/api-and-analysis-tools-for-tables-data
+    baseURL: https://data.nasdaq.com/api/v3
     tags:
-      - Open Data
+      - Financial Data
+      - Tables
+      - Market Data
     properties:
       - type: Documentation
-        url: https://docs.data.nasdaq.com/
+        url: https://docs.data.nasdaq.com/docs/api-and-analysis-tools-for-tables-data
+      - type: APIReference
+        url: https://docs.data.nasdaq.com/docs/in-depth-usage-1
+      - type: RateLimits
+        url: rate-limits/nasdaq-data-link-rate-limits.yml
+      - type: ErrorCatalog
+        url: errors/nasdaq-data-link-error-codes.yml
+  - name: Nasdaq Data Link REST API for Real-Time or Delayed Data
+    description: >-
+      REST API (Nasdaq Cloud Data Service) for real-time or delayed exchange
+      data — Nasdaq Basic, Last Sale+, BBO, Global Index Data Service, and
+      Smart Options — authenticated with client credentials exchanged for a
+      bearer token. Base URL is provisioned per customer by Nasdaq sales.
+    humanURL: https://docs.data.nasdaq.com/docs/api-for-real-time-or-delayed-data-1
+    baseURL: https://data.nasdaq.com/api/v3
+    tags:
+      - Market Data
+      - Real-Time
+    properties:
+      - type: Documentation
+        url: https://docs.data.nasdaq.com/docs/api-for-real-time-or-delayed-data-1
+      - type: APIReference
+        url: https://github.com/Nasdaq/NasdaqCloudDataService-REST-API
+      - type: Postman
+        url: https://github.com/Nasdaq/NasdaqCloudDataService-REST-API/tree/main/restapi/postman
+  - name: Nasdaq Data Link Streaming API
+    description: >-
+      Streaming API (Nasdaq Cloud Data Service) for real-time products —
+      Nasdaq Basic, Last Sale+, TotalView, Consolidated Quotes and Trades,
+      Global Index Data Service, Smart Options, and Benzinga MarketNewswires —
+      consumed through official Java and Python SDKs with OAuth client
+      credentials (client ID, client secret, token endpoint, bootstrap
+      servers).
+    humanURL: https://docs.data.nasdaq.com/docs/streaming-api-1
+    baseURL: https://data.nasdaq.com/api/v3
+    tags:
+      - Market Data
+      - Streaming
+      - Real-Time
+    properties:
+      - type: Documentation
+        url: https://docs.data.nasdaq.com/docs/streaming-api-1
+      - type: SDK
+        url: https://github.com/Nasdaq/NasdaqCloudDataService-SDK-Java
+      - type: SDK
+        url: https://github.com/Nasdaq/NasdaqCloudDataService-SDK-Python
 common:
+  - type: Website
+    url: https://data.nasdaq.com/
+  - type: DeveloperPortal
+    url: https://data.nasdaq.com/
+  - type: Documentation
+    url: https://docs.data.nasdaq.com/
+  - type: APIReference
+    url: https://docs.data.nasdaq.com/docs/in-depth-usage-1
+  - type: GettingStarted
+    url: https://docs.data.nasdaq.com/docs/getting-started
+  - type: Support
+    url: https://help.data.nasdaq.com/
+  - type: GitHubOrganization
+    url: https://github.com/Nasdaq
+  - type: StatusPage
+    url: https://status.data.nasdaq.com/
+  - type: SignUp
+    url: https://data.nasdaq.com/users/sign_up
+  - type: TermsOfService
+    url: https://data.nasdaq.com/terms
+  - type: PrivacyPolicy
+    url: https://www.nasdaq.com/privacy-statement
+  - type: Postman
+    url: https://github.com/Nasdaq/NasdaqCloudDataService-REST-API/tree/main/restapi/postman
+  - type: LLMsTxt
+    url: llms/nasdaq-data-link-llms.txt
+  - type: Packages
+    url: packages/nasdaq-data-link-packages.yml
+  - type: SDKs
+    url: packages/nasdaq-data-link-packages.yml
+  - type: CLI
+    url: cli/nasdaq-data-link-cli.yml
+  - type: MCPServer
+    url: mcp/nasdaq-data-link-mcp.yml
+  - type: WellKnown
+    url: well-known/nasdaq-data-link-well-known.yml
+  - type: ErrorCatalog
+    url: errors/nasdaq-data-link-error-codes.yml
+  - type: RateLimits
+    url: rate-limits/nasdaq-data-link-rate-limits.yml
+  - type: Lifecycle
+    url: lifecycle/nasdaq-data-link-lifecycle.yml
+  - type: Authentication
+    url: authentication/nasdaq-data-link-authentication.yml
+  - type: OAuthScopes
+    url: scopes/nasdaq-data-link-scopes.yml
+  - type: Conventions
+    url: conventions/nasdaq-data-link-conventions.yml
+  - type: Conformance
+    url: conformance/nasdaq-data-link-conformance.yml
   - type: DomainSecurity
     url: security/nasdaq-data-link-domain-security.yml
-  - type: Website
-    url: https://docs.data.nasdaq.com/
   - type: PublicAPIsListing
     url: https://github.com/public-apis/public-apis
 maintainers:

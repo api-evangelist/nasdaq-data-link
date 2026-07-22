@@ -1,0 +1,73 @@
+generated: '2026-07-22'
+method: searched
+source: PyPI, CRAN, RubyGems, npm registries + github.com/Nasdaq org + docs.data.nasdaq.com
+packages:
+  - language: python
+    registry: pypi
+    name: Nasdaq-Data-Link
+    version: 1.0.4
+    url: https://pypi.org/project/Nasdaq-Data-Link/
+    install: pip install nasdaq-data-link
+    source: https://github.com/Nasdaq/data-link-python
+    official: true
+    note: Official Python library for the Nasdaq Data Link RESTful API (622+ GitHub stars)
+  - language: r
+    registry: cran
+    name: NasdaqDataLink
+    url: https://cran.r-project.org/package=NasdaqDataLink
+    install: install.packages("NasdaqDataLink")
+    source: https://github.com/Nasdaq/data-link-r
+    official: true
+    note: Official Nasdaq Data Link R package
+  - language: python
+    registry: pypi
+    name: ndlbulkdownload
+    version: 0.2.0
+    url: https://pypi.org/project/ndlbulkdownload/
+    install: pip install ndlbulkdownload
+    source: https://github.com/Nasdaq/ndlbulkdownload
+    official: true
+    note: Official Python CLI for bulk download of tables data (see cli/ artifact)
+  - language: java
+    registry: github
+    name: NasdaqCloudDataService-SDK-Java
+    url: https://github.com/Nasdaq/NasdaqCloudDataService-SDK-Java
+    official: true
+    note: Official Java SDK for the Nasdaq Cloud Data Service streaming API (real-time data)
+  - language: python
+    registry: github
+    name: NasdaqCloudDataService-SDK-Python
+    url: https://github.com/Nasdaq/NasdaqCloudDataService-SDK-Python
+    official: true
+    note: Official Python SDK for the Nasdaq Cloud Data Service streaming API (real-time data)
+  - language: python
+    registry: pypi
+    name: Quandl
+    version: 3.7.0
+    url: https://pypi.org/project/Quandl/
+    install: pip install quandl
+    source: https://github.com/quandl/quandl-python
+    official: true
+    note: Legacy first-party package (pre-rebrand); superseded by Nasdaq-Data-Link
+  - language: ruby
+    registry: rubygems
+    name: quandl
+    version: 1.2.0
+    url: https://rubygems.org/gems/quandl
+    install: gem install quandl
+    official: true
+    note: Legacy first-party Ruby client (authors "Quandl"); last released 2020, pre-rebrand
+  - language: javascript
+    registry: npm
+    name: quandl
+    version: 0.0.6
+    url: https://www.npmjs.com/package/quandl
+    install: npm install quandl
+    official: false
+    note: Community wrapper; no first-party JavaScript SDK is published
+tools:
+  - name: Nasdaq Data Link Excel Add-in
+    platform: excel
+    url: https://docs.data.nasdaq.com/docs/excel-add-in
+    official: true
+    note: First-party Excel add-in (Windows Pro + web) for pulling subscribed datasets into Excel

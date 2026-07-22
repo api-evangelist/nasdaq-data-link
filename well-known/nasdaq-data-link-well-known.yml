@@ -1,0 +1,52 @@
+generated: '2026-07-22'
+method: searched
+source: live probes of data.nasdaq.com, docs.data.nasdaq.com, signin.nasdaq.com
+note: >-
+  data.nasdaq.com serves OAuth 2.0 Protected Resource Metadata (RFC 9728) as a
+  catch-all for every /.well-known/* path probed (security.txt,
+  openid-configuration, oauth-authorization-server, api-catalog, ai-plugin.json
+  all return the same JSON document with a 200). Only the protected-resource
+  document itself is treated as genuine; no RFC 9116 security.txt is published
+  on these hosts. The advertised authorization server is an Okta org at
+  signin.nasdaq.com whose RFC 8414 metadata is saved here as well.
+hosts:
+  - host: https://data.nasdaq.com
+    documents:
+      - path: /.well-known/oauth-protected-resource
+        status: 200
+        file: nasdaq-data-link-oauth-protected-resource.json
+        note: RFC 9728 protected resource metadata; authorization server signin.nasdaq.com/oauth2/austt9dkdogT6EFRB417/
+      - path: /.well-known/security.txt
+        status: 200
+        note: catch-all — returns the RFC 9728 protected-resource JSON, not an RFC 9116 security.txt; not saved
+      - path: /.well-known/openid-configuration
+        status: 200
+        note: catch-all — returns the RFC 9728 protected-resource JSON, not OIDC discovery; not saved
+      - path: /.well-known/api-catalog
+        status: 200
+        note: catch-all — returns the RFC 9728 protected-resource JSON, not an API catalog; not saved
+      - path: /.well-known/ai-plugin.json
+        status: 200
+        note: catch-all — returns the RFC 9728 protected-resource JSON; not saved
+  - host: https://signin.nasdaq.com/oauth2/austt9dkdogT6EFRB417
+    documents:
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        file: nasdaq-data-link-oauth-authorization-server.json
+        note: RFC 8414 authorization server metadata (Okta); scopes_supported includes datalink
+  - host: https://docs.data.nasdaq.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+  - host: https://www.nasdaq.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404

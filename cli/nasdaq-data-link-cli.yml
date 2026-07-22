@@ -1,0 +1,58 @@
+generated: '2026-07-22'
+method: searched
+source: https://docs.data.nasdaq.com/docs/python-cli
+name: bulkdownload (Nasdaq Data Link Python CLI)
+description: >-
+  Official first-party Python CLI for bulk downloading tables data from Nasdaq
+  Data Link as parquet files. Distributed as the ndlbulkdownload package on
+  PyPI; source at github.com/Nasdaq/ndlbulkdownload.
+install:
+  - method: pip
+    command: pip install ndlbulkdownload
+    source: https://pypi.org/project/ndlbulkdownload/
+repository: https://github.com/Nasdaq/ndlbulkdownload
+environment:
+  - name: NDL_APIKEY
+    description: Data Link API key, used for all requests to perform bulk download
+    required: true
+  - name: NDL_HOSTNAME
+    description: Alternative hostname to retrieve files
+    required: false
+commands:
+  - command: bulkdownload
+    description: Bulk download a table (vendor_code/table_code) from Data Link
+    flags:
+      - flag: --code
+        description: "The vendor_code/table_code to download (example: NDAQ/ESMS)"
+        required: true
+      - flag: --param
+        description: Add query param key/value pair (row filters like date.gte, ticker.in[]); repeatable
+      - flag: --debug
+        description: Increase log level to DEBUG
+      - flag: --verbose
+        description: Show logging output
+      - flag: --skip-proxy
+        description: Ignore proxy environment variables
+      - flag: --skip-ssl-verify
+        description: Do not verify SSL (not recommended)
+      - flag: --redirect / --no-redirect
+        description: "Request redirect to files (default: true)"
+      - flag: --workers
+        description: "Total parallel workers (default: min(32, os.cpu_count()))"
+      - flag: --host
+        description: Define an alternative hostname
+      - flag: --version
+        description: Show program version
+examples:
+  - description: Download data for a date
+    command: NDL_APIKEY=API_KEY bulkdownload --code NDAQ/GITH --param date.eq 2024-09-01
+  - description: Download data between a date range
+    command: NDL_APIKEY=API_KEY bulkdownload --code NDAQ/GITH --param date.gte 2024-09-01 --param date.lte 2024-09-10
+  - description: Download multiple tickers in a date range
+    command: NDL_APIKEY=API_KEY bulkdownload --code NDAQ/GITH --param 'ticker.in[]' DAA --param 'ticker.in[]' DAT --param date.gte 2024-01-01 --param date.lte 2024-04-01
+  - description: Bulk download an entire table
+    command: NDL_APIKEY=API_KEY bulkdownload --code NDAQ/GITH
+rate_limits:
+  - New subscribers have an initial limit of 25 API calls per table
+  - Ongoing daily limit of 30 API calls per table per day (resets 00:00 UTC)
+output: Parquet files, which can be concatenated locally into a full database

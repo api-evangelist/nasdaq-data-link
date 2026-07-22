@@ -1,0 +1,46 @@
+generated: '2026-07-22'
+method: searched
+source: live probes of data.nasdaq.com + signin.nasdaq.com + docs.data.nasdaq.com
+standards:
+  - id: oauth2
+    conforms: true
+    evidence: >-
+      NCDS streaming/real-time auth uses OAuth 2.0 client credentials against
+      an Okta authorization server (signin.nasdaq.com/oauth2/austt9dkdogT6EFRB417),
+      documented at docs.data.nasdaq.com/docs/streaming-api.
+  - id: rfc8414-authorization-server-metadata
+    conforms: true
+    evidence: >-
+      Live /.well-known/oauth-authorization-server metadata served by
+      signin.nasdaq.com (saved in well-known/).
+  - id: rfc9728-protected-resource-metadata
+    conforms: true
+    evidence: >-
+      data.nasdaq.com serves OAuth 2.0 Protected Resource Metadata at
+      /.well-known/oauth-protected-resource (saved in well-known/).
+  - id: oidc
+    conforms: true
+    evidence: >-
+      Authorization server advertises openid/profile/email scopes and OIDC
+      response types in its RFC 8414 metadata; applies to Nasdaq sign-in, not
+      the api_key-based Tables API.
+  - id: pagination
+    conforms: true
+    evidence: >-
+      Cursor-based pagination on the Tables API (qopts.cursor_id request
+      param, next_cursor_id response field, 10,000-row pages).
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: >-
+      Errors use a custom QE* code envelope, not application/problem+json.
+  - id: idempotency
+    conforms: false
+    evidence: Read-only GET API; no idempotency-key contract documented.
+  - id: tls-only
+    conforms: true
+    evidence: >-
+      Docs require HTTPS for all Tables API requests; HTTP requests fail.
+      TLSv1.3 + HSTS observed on docs host (security/ probe).
+  - id: json-api
+    conforms: false
+    evidence: Custom datatable JSON envelope, not JSON:API.

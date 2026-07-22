@@ -1,0 +1,19 @@
+generated: '2026-07-22'
+method: searched
+source: https://docs.data.nasdaq.com/docs/error-codes
+versioning:
+  scheme: uri-path
+  current: v3
+  evidence: All Tables API endpoints are under https://data.nasdaq.com/api/v3/
+status_page: https://status.data.nasdaq.com
+status_page_note: >-
+  Published in the docs error-codes page — "You can see the current status and
+  response times for the Nasdaq Data Link REST API for tables" — probed 200.
+deprecation:
+  policy_url: null
+  note: >-
+    No standalone deprecation policy page is published. Dataset-level
+    deprecation is signaled at runtime: error code QECx06 (HTTP 404) "This
+    dataset has been deprecated" directs users to clientsuccess@nasdaq.com.
+    No Sunset/Deprecation (RFC 8594) header support is documented.
+sla: null

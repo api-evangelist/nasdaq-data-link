@@ -1,0 +1,57 @@
+generated: '2026-07-22'
+method: searched
+source: https://docs.data.nasdaq.com/docs/rate-limits-1
+docs:
+  - https://docs.data.nasdaq.com/docs/rate-limits-1
+  - https://docs.data.nasdaq.com/docs/rate-limits-for-real-timedelayed-rest-api
+rate_limits:
+  - api: Tables API
+    tier: anonymous (no API key)
+    limit_count: 20
+    period: 10 minutes
+    notes: Applied globally to all anonymous users combined
+  - api: Tables API
+    tier: anonymous (no API key)
+    limit_count: 50
+    period: day
+    notes: Applied globally to all anonymous users combined
+  - api: Tables API
+    tier: registered (API key, no premium subscription)
+    limit_count: 300
+    period: 10 seconds
+  - api: Tables API
+    tier: registered (API key, no premium subscription)
+    limit_count: 2000
+    period: 10 minutes
+  - api: Tables API
+    tier: registered (API key, no premium subscription)
+    limit_count: 50000
+    period: day
+    notes: Concurrency limit of one call at a time plus one queued
+  - api: Tables API
+    tier: premium subscriber (API key)
+    limit_count: 5000
+    period: 10 minutes
+  - api: Tables API
+    tier: premium subscriber (API key)
+    limit_count: 720000
+    period: day
+  - api: Tables API bulk export
+    tier: premium subscriber
+    limit_count: 60
+    period: hour
+    notes: qopts.export=true bulk-download calls
+  - api: Bulk Download REST API
+    tier: subscriber (ongoing)
+    limit_count: 30
+    period: day
+    notes: Per table; response includes rate_limited_until with the next allowed request time; resets 00:00 UTC
+  - api: Bulk Download REST API
+    tier: new subscriber (initial)
+    limit_count: 25
+    period: initial allotment
+    notes: After the initial 25 requests, the ongoing daily limit applies
+signaling:
+  status_code: 429
+  error_codes: [QELx01, QELx02, QELx03, QELx04, QELx05, QEAx06]
+  bulk_download_field: rate_limited_until
