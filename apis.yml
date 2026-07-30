@@ -1,4 +1,16 @@
 aid: nasdaq-data-link
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/nasdaq-data-link.png
 name: Nasdaq Data Link
 description: >-
