@@ -7,12 +7,16 @@ front_door_ai:
   probed_at: '2026-09-17'
   host: data.nasdaq.com
   final_host: data.nasdaq.com
-  ownership: own
-  owner: nasdaq-data-link
-  shares_host_with: null
+  ownership: unresolved
+  owner: null
+  shares_host_with:
+  - quandl
   inherited_from: null
+  alias_of: null
   verdict: thin
   score: null
+  band: null
+  band_label: null
   host_score: null
   density: null
   words: 31
